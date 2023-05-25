@@ -14,7 +14,10 @@ if(!$_SESSION['mdp']){
     <title>Admin</title>
 </head>
 <body>
-   <a href="deconnexionAdmin.php"><button>Se deconnecter</button></a> 
-   <a href="membres.php">Afficher tous les membres</a>
+    <a href="membres.php">Afficher tous les membres</a>
+    <br>
+    <a href="publier-article.php">Ajouter un article</a>
+    <br>
+    <a href="deconnexionAdmin.php"><button>Se deconnecter</button></a> 
 </body>
 </html>
