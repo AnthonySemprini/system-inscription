@@ -8,6 +8,15 @@ if(isset($_POST['envoi'])){
         $insertUsers = $bdd->prepare('INSERT INTO users(pseudo, mdp)VALUES(?, ?)');//insert dans la bdd
         $insertUsers->execute(array($pseudo, $mdp));
 
+        $recupUser = $bdd->prepare('SELECT * FROM users WHERE pseudo = ? AND mdp = ?');
+        $recupUser->execute(array($pseudo, $mdp));
+        if($recupUser->rowCount() > 0){
+        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['mdp'] = $mdp;
+        $_SESSION['id'] = $recupUser->fetch()['id'];//selectionne $recupUsser et fetch juste 'id' por recup l'ID
+        }
+
+        echo $_SESSION['id'];
     }else{
         echo "Veuillez completer tous les champs...";
     }
