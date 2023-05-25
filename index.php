@@ -1,13 +1,13 @@
 <?php 
-session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8;','root', 'root');
+session_start();//ouvre nouvel session
+$bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8;','root', 'root');//relie a la bdd
 if(isset($_POST['envoi'])){
-    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
+    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){//verifie si input sont vide
         $pseudo = htmlspecialchars($_POST['pseudo']);
-        $mdp = sha1($_POST['mdp']);
-        $insertUsers = $bdd->prepare('INSERT INTO users(pseudo, mdp)VALUES(?, ?)');
+        $mdp = sha1($_POST['mdp']);//encodage mdp
+        $insertUsers = $bdd->prepare('INSERT INTO users(pseudo, mdp)VALUES(?, ?)');//insert dans la bdd
         $insertUsers->execute(array($pseudo, $mdp));
-        
+
     }else{
         echo "Veuillez completer tous les champs...";
     }
