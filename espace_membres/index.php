@@ -15,7 +15,8 @@ echo "Hello ".$_SESSION['pseudo'];
     <title>Home</title>
 </head>
 <body>
-    <h1>Home</h1>
-    <a href="deconnexion.php"><button>Se deconnecter</button></a>
+    <br><a href="deconnexion.php"><button>Se deconnecter</button></a>
+    <br><a href="connexion.php"><button>Connexion</button></a>
+    <br><a href="inscription.php"><button>Inscription</button></a>
 </body>
 </html>

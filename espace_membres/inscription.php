@@ -31,6 +31,9 @@ if(isset($_POST['envoi'])){
     <title>Inscription</title>
 </head>
 <body>
+<br><a href="connexion.php"><button>Connexion</button></a>
+    <br><a href="inscription.php"><button>Inscription</button></a>
+    <br><a href="index.php"><button>Home</button></a>
     <h1>Inscription</h1>
 <form method="POST" action="" align="center">
     <p>Pseudo : <input type="text" name="pseudo" autocomplete="off"></p>

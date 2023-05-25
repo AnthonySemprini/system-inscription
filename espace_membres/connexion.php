@@ -33,6 +33,9 @@ if(isset($_POST['envoi'])){
     <title>Connexion</title>
 </head>
 <body>
+<br><a href="connexion.php"><button>Connexion</button></a>
+    <br><a href="inscription.php"><button>Inscription</button></a>
+    <br><a href="index.php"><button>Home</button></a>
     
 <form method="POST" action="" align="center">
 
