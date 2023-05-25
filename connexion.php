@@ -13,7 +13,7 @@ if(isset($_POST['envoi'])){
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['mdp'] = $mdp;
             $_SESSION['id'] = $recuUser->fetch()['id'];
-            echo $_SESSION['id'];
+            header('Location: index.php'); 
 
         }else{
             echo "Votre mot de passe ou pseudo est incorect ...";
