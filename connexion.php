@@ -1,5 +1,27 @@
 <?php
+session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8;','root', 'root');//relie a la bdd
+if(isset($_POST['envoi'])){
+    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $mdp = sha1($_POST['mdp']);
+
+        $recuUser = $bdd->prepare('SELECT * FROM users WHERE pseudo = ? AND mdp = ?');
+        $recuUser->execute(array($pseudo, $mdp));
+
+        if($recuUser->rowCount() >0){
+            $_SESSION['pseudo'] = $pseudo;
+            $_SESSION['mdp'] = $mdp;
+            $_SESSION['id'] = $recuUser->fetch()['id'];
+            echo $_SESSION['id'];
+
+        }else{
+            echo "Votre mot de passe ou pseudo est incorect ...";
+        }
+    }else{
+        echo "Veuillez completer tous les champs ...";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +36,9 @@ $bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8;','root'
     
 <form method="POST" action="" align="center">
 
-<input type="text" name="pseudo">
+<input type="text" name="pseudo" autocomplete="off">
 <br>
-<input type="password" name="mdp">
+<input type="password" name="mdp" autocomplete="off">
 <br><br>
 <input type="submit" name="envoi">
 </form>
