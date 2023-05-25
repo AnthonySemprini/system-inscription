@@ -1,18 +1,15 @@
 <?php
-session_start();
-if(!$_SESSION['mdp']){
-    header('Location: connexionAdmin.php');
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Modifier articles</title>
 </head>
+
 <body>
     <nav>
         <a href="membres.php">Afficher tous les membres</a>
@@ -29,4 +26,5 @@ if(!$_SESSION['mdp']){
         <a href="deconnexionAdmin.php"><button>Se deconnecter</button></a>
     </nav>
 </body>
+
 </html>

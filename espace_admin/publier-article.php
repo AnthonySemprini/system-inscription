@@ -8,9 +8,9 @@ if(!$_SESSION['mdp']){
 if(isset($_POST['envoi'])){
     if(!empty($_POST['titre'])AND !empty($_POST['contenu'])){ 
         $titre = htmlspecialchars($_POST['titre']);
-        $contenu = nl2br(htmlspecialchars($_POST['contenu']));
+        $contenu = nl2br(htmlspecialchars($_POST['contenu']));// permet de conserver les saut a la ligne 
 
-        $insereArticle = $bdd->prepare('INSERT INTO articles(titre, contenu)VALUES(?, ?)');
+        $insereArticle = $bdd->prepare('INSERT INTO articles(titre, contenu)VALUES(?, ?)');//insert dans la bdd
         $insereArticle->execute(array($titre, $contenu));
         echo "L'article a bien été envoyé ";
 }else{
@@ -27,7 +27,22 @@ if(isset($_POST['envoi'])){
     <title>Publier un article</title>
 </head>
 <body>
+<nav>
+        <a href="membres.php">Afficher tous les membres</a>
+        <br>
+        <a href="publier-article.php">Ajouter un article</a>
+        <br>
+        <a href="articles.php">Afficher les articles</a>
+        <br>
+        <a href="supprimer-articles.php">Supprimer articles</a>
+        <br>
+        <a href="modifier-articles.php">Modifier les articles</a>
+        <br>
+        <br>
+        <a href="deconnexionAdmin.php"><button>Se deconnecter</button></a>
+    </nav>
     <form method ="POST" action="">
+        
         <input type="text" name="titre">
         <br>
         <textarea name="contenu" id="" cols="30" rows="10"></textarea>

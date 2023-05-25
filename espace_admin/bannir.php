@@ -9,7 +9,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
         $bannirUser = $bdd->prepare('DELETE FROM membres WHERE id = ?');//delete le membres de la bdd SQL
         $bannirUser->execute(array($getId));
-        header('Location: membres.php')
+        header('Location: membres.php');
     }else{
         echo "Aucun membres n'a été trouvé";
     }
